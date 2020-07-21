@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Link, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Link, Switch, Route, useHistory } from 'react-router-dom';
 import Reviews from './Components/Reviews.js';
 import Home from './Components/Home';
 import NewReview from './Components/NewReview';

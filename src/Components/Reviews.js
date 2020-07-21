@@ -19,7 +19,7 @@ const Reviews = () => {
   }
 
   return (
-    <body className="body">
+    <div className="body">
       <h3>Published</h3>
       {reviewsList.map(item => (
         <li key={item.id}>{item.title}</li>
@@ -28,7 +28,7 @@ const Reviews = () => {
       {reviews.map(review => (
         <li key={review.id}>{review.title}</li>
       ))} */}
-    </body>
+    </div>
   );
 };
 

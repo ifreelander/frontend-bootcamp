@@ -1,11 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import Reviews from './Reviews';
+import { useHistory } from 'react-router-dom';
 
 const NewReview = () => {
-  const [title, setTitle] = useState('');
-  const [body, setBody] = useState('');
+  const [title, setTitle] = useState('React lesson');
+  const [body, setBody] = useState('lablablab');
   const [rating, setRating] = useState();
   const [review, setReview] = useState('');
+  const [responseMessage, setResponseMessage] = useState([]);
+
+  console.log('responseMessage state:', responseMessage);
+
+  const history = useHistory();
 
   const ratingOptions = [
     { value: 1, label: 1 },
@@ -25,16 +31,26 @@ const NewReview = () => {
     try {
       const response = await fetch('http://localhost:5000/reviews', postRequest);
       const addedReview = await response.json();
-      console.log('respone', response, response.status);
-      return addedReview;
+
+      // console.log(addedReview[0].message);
+      console.log('addedReview', addedReview);
+      if (response.status === 400) {
+        setResponseMessage(addedReview[0].message);
+      }
+
+      if (response.status === 200) {
+        history.push('/');
+      }
     } catch (error) {
       console.log('error', error);
     }
   };
 
   return (
-    <body className="body">
+    <div className="body">
       <h2>New Review</h2>
+
+      <h3>{responseMessage}</h3>
 
       <form>
         <label htmlFor="title">Title</label>
@@ -60,8 +76,9 @@ const NewReview = () => {
       >
         Save as draft
       </button>
+
       <button>Publish</button>
-    </body>
+    </div>
   );
 };
 
