@@ -30,7 +30,7 @@
 
 .navItem {
   padding: 10px;
-  font-weight: 900;
+  font-weight: 600;
   text-decoration: none;
   color: rgb(236, 218, 202);
 }
@@ -40,6 +40,10 @@
   width: 700px;
   margin: 1px;
   padding: 20px;
+}
+.h3 {
+  padding-bottom: 15px;
+  padding-top: 15px;
 }
 
 /* 

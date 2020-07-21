@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Link, Switch, Route } from 'react-router-dom';
-import New from './Components/New.js';
-import List from './Components/List.js';
-// import logo from './logo.svg';
+import Reviews from './Components/Reviews.js';
+import Home from './Components/Home';
+import NewReview from './Components/NewReview';
+
 import './App.css';
 
 function App() {
@@ -17,12 +18,14 @@ function App() {
             New
           </Link>
         </header>
+        <main>
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/reviews" exact component={Reviews} />
+            <Route path="/new" exact component={NewReview} />
+          </Switch>
+        </main>
       </div>
-
-      <Switch>
-        <Route path="/" exact component={List}></Route>
-        <Route path="/new" exact component={New}></Route>
-      </Switch>
     </Router>
   );
 }
