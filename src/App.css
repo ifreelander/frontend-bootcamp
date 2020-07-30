@@ -41,11 +41,52 @@
   margin: 1px;
   padding: 20px;
 }
-.h3 {
-  padding-bottom: 15px;
-  padding-top: 15px;
+
+.h2 {
+  padding-bottom: 10px;
+}
+.list {
+  list-style: none;
+  height: 40px;
+  background-color: slategray;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: aliceblue;
+  font-size: larger;
+  font-weight: 500;
+  padding: 6px;
 }
 
+.form {
+  padding-bottom: 3px;
+}
+.divRating {
+  padding: 5px;
+  padding-right: 5px;
+  width: 600px;
+  height: 40px;
+  background-color: slategray;
+}
+.label {
+  padding-right: 18px;
+  color: white;
+}
+.titleInput {
+  width: 600px;
+  height: 40px;
+  text-align: start;
+}
+.reviewInput {
+  width: 600px;
+  height: 400px;
+  text-align: start;
+  justify-content: start;
+}
+.button {
+  padding: 5px;
+  font-size: large;
+  border-style: solid;
+}
 /* 
 
 .App-link {

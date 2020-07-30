@@ -20,9 +20,11 @@ const Reviews = () => {
 
   return (
     <div className="body">
-      <h3>Published</h3>
-      {reviewsList.map(item => (
-        <li key={item.id}>{item.title}</li>
+      <h2>Published</h2>
+      {reviewsList.map((item) => (
+        <li key={item.id} className="list">
+          {item.title}
+        </li>
       ))}
       {/* <h3 className="h3">Drafts</h3>
       {reviews.map(review => (

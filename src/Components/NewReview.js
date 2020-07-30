@@ -3,8 +3,8 @@ import Reviews from './Reviews';
 import { useHistory } from 'react-router-dom';
 
 const NewReview = () => {
-  const [title, setTitle] = useState('React lesson');
-  const [body, setBody] = useState('lablablab');
+  const [title, setTitle] = useState('Frontend boot camp');
+  const [body, setBody] = useState('Everything is awesome');
   const [rating, setRating] = useState();
   const [review, setReview] = useState('');
   const [responseMessage, setResponseMessage] = useState([]);
@@ -21,7 +21,7 @@ const NewReview = () => {
     { value: 5, label: 5 },
   ];
 
-  const addReview = async rvw => {
+  const addReview = async (rvw) => {
     const postRequest = {
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
@@ -48,36 +48,60 @@ const NewReview = () => {
 
   return (
     <div className="body">
-      <h2>New Review</h2>
+      <h2 className="h2">New Review</h2>
 
       <h3>{responseMessage}</h3>
 
-      <form>
+      <form className="form">
         <label htmlFor="title">Title</label>
-        <input id="title" value={title} onChange={e => setTitle(e.target.value)} />
+        <br></br>
+        <input
+          id="title"
+          type="text"
+          className="titleInput"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
+        <br></br>
         <label>Review</label>
-        <input id="review-body" value={body} onChange={e => setBody(e.target.value)} />
+        <br></br>
+        <input
+          className="reviewInput"
+          id="review-body"
+          label="review-body"
+          type="text"
+          value={body}
+          onChange={(e) => setBody(e.target.value)}
+        />
       </form>
-
-      <label htmlFor="rating">Rating</label>
-      <select id="rating" value={rating ?? ''} onChange={e => setRating(parseInt(e.target.value))}>
-        <option>Select a number</option>
-        {ratingOptions.map(opt => (
-          <option value={opt.value}>{opt.label}</option>
-        ))}
-      </select>
+      <br></br>
+      <div className="divRating">
+        <label className="label" htmlFor="rating">
+          Rating
+        </label>
+        <select
+          id="rating"
+          value={rating ?? ''}
+          onChange={(e) => setRating(parseInt(e.target.value))}
+        >
+          <option>Select a number between 1 and 5</option>
+          {ratingOptions.map((opt) => (
+            <option value={opt.value}>{opt.label}</option>
+          ))}
+        </select>
+      </div>
+      <br></br>
       <button
+        className="button"
         type="submit"
-        onClick={async e => {
+        onClick={async (e) => {
           e.preventDefault();
           const newReview = { title, body, rating, published: false };
           const addedReview = await addReview(newReview);
         }}
       >
-        Save as draft
+        Publish
       </button>
-
-      <button>Publish</button>
     </div>
   );
 };
