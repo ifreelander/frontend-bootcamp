@@ -57,6 +57,10 @@
   padding: 6px;
 }
 
+.td {
+  width: 700px;
+}
+
 .form {
   padding-bottom: 3px;
 }

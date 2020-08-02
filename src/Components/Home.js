@@ -1,8 +1,7 @@
 import React from 'react';
 import Reviews from './Reviews';
 
-const Home = props => {
-  console.log(props);
+const Home = (props) => {
   return <Reviews />;
 };
 

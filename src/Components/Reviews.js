@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Link, Switch, Route } from 'react-router-dom';
+import styled from 'styled-components';
 
 const Reviews = () => {
   const [reviewsList, setReviewsList] = useState([]);
@@ -22,9 +23,18 @@ const Reviews = () => {
     <div className="body">
       <h2>Published</h2>
       {reviewsList.map((item) => (
-        <li key={item.id} className="list">
-          {item.title}
-        </li>
+        <table>
+          <tr>
+            <li key={item.id} className="list">
+              <td className="td"> {item.title} </td>
+              <td>{item.rating}</td>
+            </li>
+          </tr>
+          {/* {' '}
+          <li key={item.id} className="list">
+            {item.title} {item.rating}
+          </li> */}
+        </table>
       ))}
       {/* <h3 className="h3">Drafts</h3>
       {reviews.map(review => (

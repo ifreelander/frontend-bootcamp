@@ -63,13 +63,12 @@ const NewReview = () => {
           onChange={(e) => setTitle(e.target.value)}
         />
         <br></br>
-        <label>Review</label>
+        <label htmlFor="review">Review</label>
         <br></br>
         <input
-          className="reviewInput"
-          id="review-body"
-          label="review-body"
+          id="review"
           type="text"
+          className="reviewInput"
           value={body}
           onChange={(e) => setBody(e.target.value)}
         />
